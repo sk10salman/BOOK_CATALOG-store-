@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block head %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/final.css">
+{% endblock %}
+
+{% block title %}
+SIGNUP
+{% endblock %}
+{% block body %}
+    <form action="{{ url_for('register') }}" method="post">
+            <center><h1>Sign Up</h1></center>
+            <p>Please fill in this form to create an account.</p>
+            <input type="text" id="name" placeholder="Enter name" name="username" required><br>
+            <input type="text" id="email" placeholder="Enter Email" name="email" required><br>                                    
+            <input type="password" id="pass" placeholder="Enter Password" name="password" required><br>                 
+            <div>
+                <span><button type="submit" id="signup">Register</button>
+                <input type="reset" id="cancel" value="CANCEL"></span>
+            </div>
+        </form>
+{% endblock %}

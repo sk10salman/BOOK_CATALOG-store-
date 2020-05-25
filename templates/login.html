@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LOGIN</title>
+        <link rel="stylesheet" href="../static/final.css">
+    </head>
+    <body style="background-image: url('../static/header.jpg')">
+        <div class="jut">
+            <form action="{{ url_for('login') }}" method="post">
+                <h2><center>LOGIN</center></h2> 
+                <h3>USERNAME</h3>
+                <input type="text" id="email" name="username" required placeholder="Enter your username">
+                <h3>PASSWORD</h3>
+                <input type="password" id="pass" name="password" required placeholder="Enter password"><br>
+                <button type="submit" id="sub">Login</button><br>
+                <a href="{{ url_for('forgot')}}">Forgot password</a>
+                <span><br>Do not have account<br><a id="signup" href="{{ url_for('register') }}">SIGNUP</a>
+           </form>
+                  
+        </div>
+    </body>
+</html>      
+  

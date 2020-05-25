@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+<title>Book Store</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+        p{ font-size: 27px;
+           color: purple;}
+         
+        pp{font-size: 22px;
+           color: red;}
+        
+    </style>
+<link href="../static/templatemo_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body  style="background-image: url('../static/images/bb1.jpg')">
+
+<div id="templatemo_container" style="background-image: url('../static/images/bb5.jpg')">
+    <div id="templatemo_menu" style="background-image: url('../static/images/templatemo_menu_bg.jpg')">    
+        <ul>
+            <li><a href="{{ url_for('index')}}" class="current" style="color:red">Home</a></li>
+            <li><a href="{{url_for('contact')}}" style="color:red">Contact</a></li>
+            <li><a href="{{url_for('mybooks')}}" style="color:red">MyBooks</a></li> 
+            <li><a href="{{url_for('logout')}}" style="color:red">Logout</a></li>            
+
+            
+        </ul>
+    </div> 
+    
+    
+    <div id="templatemo_content">
+    	
+        <div id="templatemo_content_left">
+        	<div class="templatemo_content_left_section">
+                <form action="{{url_for('search')}}" method="post">
+                        <input id="title" name="tit" placeholder="Title">
+                        <button id="button" type="submit" class="btn btn-primary">Click Me</button>
+                </form>
+            </div>
+			<div class="templatemo_content_left_section">
+            	
+            </div>
+            
+            <div class="templatemo_content_left_section">                
+                </div>
+        </div> 
+        
+        <div id="templatemo_content_right">
+            {% for i in range(0,rows) %}
+        	<br>
+            <p>{{title[i]}}</p>
+            <div class="image_panel"><img src="{{imglink[i]}}" alt="Book cover" width="150" height="200" /></div>
+          
+            <ul><br><br><br><br>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<pp>Authors:- 
+                    {% for auth in author[i] %}
+                        <span>{{auth}} </span>
+                    {% endfor %}</pp>
+                </li>
+                <li><form action="{{url_for('details')}}" method="post">
+                    <input type="text" value="{{isbn10[i]}}" name="isbn" style="display: none">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button  type="submit" class="btn btn-success">Details</button></p>
+                </form></li>
+            </ul>
+             <div class="cleaner_with_height">&nbsp;</div>
+            {% endfor %}
+             <a href="subpage.html"><img src="../static/images/book1.gif" alt="ads" height="200px" width="100%"/></a>
+            </div> <!-- end of content right -->
+        
+    
+    	<div class="cleaner_with_height">&nbsp;</div>
+    </div> <!-- end of content -->
+    
+    <div id="templatemo_footer">
+        <a href="{{ url_for('index')}}">Home</a> | <a href="{{ url_for('mybooks')}}">Books</a> | <a href="{{ url_for('contact')}}">Contact Us</a>|<br />
+        <a href="#">Devloped by</a><br>
+        <a href="#">Manoj Kavish & Mohit<br></a> 
+     
+     </div>
+</div> 
+</body>
+</html>

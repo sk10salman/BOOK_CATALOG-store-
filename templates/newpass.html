@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Forgot
+{% endblock %}
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="demo_icon.gif" type="image/gif" sizes="16x16">
+    <script src = "my.js"></script>
+    <link rel="stylesheet" href="../static/final.css">
+{% endblock %}
+{% block body %}
+<body style="background-image: url('../static/header.jpg')">
+    <div class="jut">
+            <form action="{{url_for('realchange')}}" method="POST">
+               <h2><center>Password Change</center></h2> 
+                    <h3>Enter New Password</h3>
+                    <input type="password" id="pass" name="newpass" required placeholder="Enter password"><br>
+                    <h3>Type Again</h3>
+                    <input type="password" id="pass" name="confirmpass" required placeholder="Enter password"><br>
+                    <button id="sub" style="color:white;text-decoration:none">Login</button><br>                      
+            </form>
+    </div>
+</body>
+{% endblock %}

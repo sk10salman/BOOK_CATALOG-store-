@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Success
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="../static/style.css" type="text/css">
+{% endblock %}
+{% block body %}
+    
+	<div id="success">
+			<div class="success">
+				<div class="cmt">
+					<h1>Success</h1>
+					<br>
+					<h2>{{message}}</h2>
+				</div>
+				<br><br><br><br>
+				<a href="{{url_for('home')}}">Homepage</a>
+			</div>
+		</div>
+{% endblock %}

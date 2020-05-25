@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        p{ font-size: 18px;
+           color: purple;
+        }
+        
+    </style>
+<title>Book Store</title>
+<link href="../static/templatemo_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="background-image: url('../static/images/bb1.jpg')">
+<div id="templatemo_container" style="background-image: url('../static/images/bb5.jpg')">
+    <div id="templatemo_menu" style="background-image: url('../static/images/templatemo_menu_bg.jpg')">
+    	<ul>
+            <li><a href="{{ url_for('index')}}" class="current" style="color:red">Home</a></li>
+            <li><a href="{{url_for('contact')}}" style="color:red">Contact</a></li>
+            <li><a href="{{url_for('mybooks')}}" style="color:red">MyBooks</a></li> 
+            <li><a href="{{url_for('logout')}}" style="color:red">Logout</a></li>            
+
+            
+    	</ul>
+    </div> 
+    
+     
+    <div id="templatemo_content">
+    	
+        <div id="templatemo_content_left">
+        	
+			<div class="templatemo_content_left_section">
+                <form action="{{url_for('search')}}" method="post">
+                    <input id="title" name="tit" style="color: black;" placeholder="Title">
+                    <button id="button" type="submit" class="btn btn-primary">Click Me</button>
+                </form>            
+            </div>
+          
+            <div class="templatemo_content_left_section">                
+               </div>
+        </div> <!-- end of content left -->
+        
+        <div id="templatemo_content_right">
+                <br>
+                <p>{{sub[0]}} Books</p>
+<br>
+     
+            {% for j in range(0,4,2) %}
+           	<div  class="templatemo_product_box" style="background-image: url('../static/images/bb3.jpg')" >
+                
+            	<h1 style="color:blueviolet">{{title[j]}}</h1>
+               <img src="{{imglink[j]}}" width="120px" height="150px" alt="image" />
+                    <div class="product_info">
+                
+            <div><form action="{{url_for('details')}}" method="post">
+                <input type="text" value="{{isbn[j]}}" name="isbn" style="display:none">
+                 <button class="detail_button" type="submit"  style="color: black;"  class="btn btn-success" >Details</button>
+            </form>
+          </div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_width">&nbsp;</div>
+            
+            <div class="templatemo_product_box" style="background-image: url('../static/images/bb3.jpg')">
+            	<h1 style="color:blueviolet">{{title[j+1]}}</h1>
+                    
+                       <img src="{{imglink[j+1]}}" alt="image"  width="120px" height="150px"  />
+                    <div class="product_info">
+                      <div><form action="{{url_for('details')}}" method="post">
+                        <input type="text" value="{{isbn[j+1]}}" name="isbn" style="display:none">
+                        <button class="detail_button" type="submit"  style="color: black;" class="btn btn-success" >Details</button>
+                    </form>
+                  </div>
+                    </div>
+                    <div class="cleaner">&nbsp;</div>
+                </div>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+    {% endfor %}
+
+    <br>
+    <p>{{sub[1]}} Books</p>
+<br>
+    
+    {% for j in range(4,8,2) %}
+      	<div class="templatemo_product_box" style="background-image: url('../static/images/bb3.jpg')">
+            <h1 style="color:blueviolet">{{title[j]}}</h1>
+            
+         	      <img src="{{imglink[j]}}" alt="image"  width="120px" height="150px"/>
+                <div class="product_info">
+            <div><form action="{{url_for('details')}}" method="post">
+                <input type="text" value="{{isbn[j]}}" name="isbn" style="display:none">
+                <button class="detail_button" type="submit" style="color: black;" class="btn btn-success">Details</button>
+            </form>
+          </div>
+                </div>
+                <div class="cleaner">&nbsp;</div></p>
+            </div>
+            
+            <div class="cleaner_with_width">&nbsp;</div>
+            
+            <div class="templatemo_product_box" style="background-image: url('../static/images/bb3.jpg')">
+            	<h1 style="color:blueviolet">{{title[j+1]}}</h1>
+            
+                       <img src="{{imglink[j+1]}}" alt="image"  width="120px" height="150px"/>
+                    <div class="product_info">
+            <div><form action="{{url_for('details')}}" method="post">
+                <input type="text" value="{{isbn[j+1]}}" name="isbn" style="display:none">
+                <button class="detail_button" type="submit"   style="color: black;" class="btn btn-success">Details</button>
+            </form>
+          </div>
+                    </div>
+                    <div class="cleaner">&nbsp;</div>
+                </div>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+    {% endfor %}
+  
+    <br>
+    <p>{{sub[2]}} Books</p>
+<br>
+    
+    {% for j in range(8,12,2) %}
+ 
+        	<div class="templatemo_product_box" style="background-image: url('../static/images/bb3.jpg')">
+            	<h1 style="color:blueviolet">{{title[j]}}</h1>
+            	
+         	      <img src="{{imglink[j]}}" alt="image"  width="120px" height="150px"/>
+                <div class="product_info">
+            <div><form action="{{url_for('details')}}" method="post">
+                <input type="text" value="{{isbn[j]}}" name="isbn" style="display:none">
+                <button class="detail_button" type="submit"  style="color: black;" class="btn btn-success">Details</button>
+            </form>
+          </div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_width">&nbsp;</div>
+            
+            <div class="templatemo_product_box" style="background-image: url('../static/images/bb3.jpg')">
+            	<h1 style="color:blueviolet">{{title[j+1]}}</h1>
+                    
+                       <img src="{{imglink[j+1]}}" alt="image"  width="120px" height="150px" />
+                    <div class="product_info">
+            <div><form action="{{url_for('details')}}" method="post">
+                <input type="text" value="{{isbn[j+1]}}" name="isbn" style="display:none">
+                <button class="detail_button" type="submit"  style="color: black;" class="btn btn-success">Details</button>
+            </form>
+          </div>
+                    </div>
+                    <div class="cleaner">&nbsp;</div>
+                </div>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+    {% endfor %}
+    <br>
+    <p>{{sub[3]}} Books</p>
+<br>
+
+    {% for j in range(12,16,2) %}
+     	<div class="templatemo_product_box"  style="background-image: url('../static/images/bb3.jpg')" >
+            <h1 style="color:blueviolet">{{title[j]}}</h1>            	
+         	      <img src="{{imglink[j]}}" alt="image"  width="120px" height="150px"/>
+                <div class="product_info">
+            <div><form action="{{url_for('details')}}" method="post">
+                  <input type="text" value="{{isbn[j]}}" name="isbn" style="display:none">
+                  <button class="detail_button" type="submit"  style="color: black;" class="btn btn-success">Details</button>
+              </form>
+            </div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_width">&nbsp;</div>
+            
+            <div class="templatemo_product_box"  style="background-image: url('../static/images/bb3.jpg')" >
+            	<h1 style="color:blueviolet">{{title[j+1]}}</h1>                    
+                       <img src="{{imglink[j+1]}}" alt="image"  width="120px" height="150px"/>
+                    <div class="product_info">
+                      <div><form action="{{url_for('details')}}" method="post">
+                        <input type="text" value="{{isbn[j]}}" name="isbn" style="display:none">
+                        <button class="detail_button" type="submit"  style="color: black;" class="btn btn-success" >Details</button>
+                    </form>
+                  </div>
+                    </div>
+                    <div class="cleaner">&nbsp;</div>
+                </div>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+    {% endfor %}
+
+            
+            <a href="subpage.html"><img src="../static/images/book1.gif" alt="ads" height="200px" width="100%"/></a>
+        </div> <!-- end of content right -->
+    
+    	<div class="cleaner_with_height">&nbsp;</div>
+    </div> <!-- end of content -->
+    
+    <div id="templatemo_footer">
+    
+	    <a href="{{ url_for('index')}}">Home</a> | <a href="{{ url_for('mybooks')}}">Books</a> | <a href="{{ url_for('contact')}}">Contact Us</a>|<br />
+        <a href="#">Devloped by</a><br>
+        <a href="#">Manoj , Kavish & Mohit<br></a> 
+     </div> 
+</div> <!-- end of container -->
+
+ 
+
+</body>
+</html>
